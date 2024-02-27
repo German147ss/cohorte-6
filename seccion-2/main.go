@@ -28,6 +28,7 @@ func concurrentSum() {
 		go func(x int) { // Iniciamos una goroutine para calcular el cuadrado de un número
 			defer wg.Done() // Avisamos a la WaitGroup que hemos terminado al salir de la goroutine
 			ch <- x * x     // Enviamos el resultado al canal
+			return
 		}(i) // Pasamos el valor de i a la goroutine
 	}
 
